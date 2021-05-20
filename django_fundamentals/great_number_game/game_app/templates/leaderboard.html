@@ -1,0 +1,22 @@
+<table style="width :30%">
+    <tr>
+      <th>Firstname</th>
+      <th>attempts</th>
+    </tr>
+    {%for i in list%}
+    <tr>
+      <td>{{i.name}}</td>
+      <td>{{i.attempt}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <br>
+  <br>
+  <a href="/again" style="background-color: hotpink;width: 200px;height: 200px; border:2px solid blue">Go back to the game</a>
+  <style>
+      tr{
+          border: 2px solid black;
+          background-color: grey;
+          color: hotpink;
+      }
+  </style>
