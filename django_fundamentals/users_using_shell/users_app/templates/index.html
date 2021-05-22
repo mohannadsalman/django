@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users with Templates</title>
+    <style>
+        /* *
+        {
+        padding: auto;
+        } */
+        table {
+            border: 2px solid black;
+        }
+
+        td,
+        th {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <div class="top">
+                <h1>All the Users</h1>
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>First Name </th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                    {% for i in Table_of_Users %}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{i.first_name}} {{i.last_name}} </td>
+                        <td>{{ i.email_address }}</td>
+                        <td>{{ i.age }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <hr>
+            <div class="bottom">
+                <h2>Add a User</h2>
+                <form action="/handle_data" method="POST">
+                    {% csrf_token %}
+                    <p> First Name : <input type="text" name="firstName"> Last Name : <input type="text"
+                            name="lastName"></p>
+                    <p> Email : <input type="text" name="email_address"> Age : <input type="text" name="age"></p>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+    </center>
+</body>
+</html>
