@@ -1,0 +1,42 @@
+python manage.py makemigrations
+------------------------------------------------------------------------
+python manage.py migrate
+------------------------------------------------------------------------
+python manage.py shell
+------------------------------------------------------------------------
+from myapp.models import dojo,ninja
+------------------------------------------------------------------------
+dojo.objects.create(name="huthifa",state="Palestine",city="nablus")
+dojo.objects.create(name="mohand",state="Palestine",city="nablus")
+dojo.objects.create(name="hazem",state="Palestine",city="kalkelia")
+---------------------------------------------------------------------------------------
+dojo.objects.get(id=1).delete()
+dojo.objects.get(id=2).delete()
+dojo.objects.get(id=3).delete()
+----------------------------------------------------------------------------------------------------------------------------------------------
+dojo.objects.create(name="huthifa",state="Palestine",city="nablus")
+dojo.objects.create(name="mohand",state="Palestine",city="nablus")
+dojo.objects.create(name="hazem",state="Palestine",city="kalkelia")
+---------------------------------------------------------------------------------------
+ninja.objects.create(first_name="huti",last_name="khraishi", dojo = dojo.objects.get(id=4))	
+ninja.objects.create(first_name="mohand",last_name="khr", dojo = dojo.objects.get(id=5))	
+ninja.objects.create(first_name="man",last_name="khdr", dojo = dojo.objects.get(id=6))
+-------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+ninja.objects.create(first_name="hutihifa",last_name="khr", dojo = dojo.objects.get(id=4))	
+ninja.objects.create(first_name="Mohand",last_name="khasdsar", dojo = dojo.objects.get(id=5))	
+ninja.objects.create(first_name="man",last_name="khdrff", dojo = dojo.objects.get(id=6))
+-------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+ninja.objects.create(first_name="hutgi",last_name="khrgaishi", dojo = dojo.objects.get(id=4))	
+ninja.objects.create(first_name="mohgand",last_name="khgr", dojo = dojo.objects.get(id=5))	
+ninja.objects.create(first_name="magn",last_name="khdgr", dojo = dojo.objects.get(id=6))
+-------------------------------------------------------------------------------------------
+dojo.objects.first().dojos.all()
+-------------------------------------------------------------------------------------------
+dojo.objects.last().dojos.all()
+-----------------------------------------------------------------------------------------------
+ninja.objects.filter().last()
+-------------------------------------------------------------
+desc = models.TextField() in class dojo 
+then do makemigtations and migrate
