@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="applyedit">
+        {% csrf_token %}
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1>edit show {{x.id}}</h1>
+        <label for="title">Title</label>
+        <input name="title" type="text" value={{x.title}}>
+        <br><br>
+        <label for="netowrk">Network</label>
+        <input name="network" type="text" value={{x.network}}>
+        <br><br>
+        <label for="rdate">release-date</label>
+        <input name="rdate" type="date" value={{x.release_date}}>
+        <br><br>
+        <label for="desc">Description</label>
+        <textarea name="desc">{{x.description}}</textarea>
+        <br><br>
+        <input name="id"type="hidden" value={{x.id}}>
+        <button type="submit" class="btn btn-primary">edit show</button>
+    </form>
+    <br><br><br><br><br><br><br><br><br><br>
+    <a href="../shows">Go back</a>          |               <a href="../show/{{x.id}}">Show</a>
+</body>
+</html>
